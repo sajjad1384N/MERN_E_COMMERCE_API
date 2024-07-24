@@ -10,13 +10,12 @@ import cors from 'cors';
 const app = express();
 import bodyParser from 'express'
 app.use(bodyParser.json())
-app.use(cors({
-  origin:'http://localhost:5173',
-  methods:[ "GET","POST","PUT","DELETE"],
-  credentials:true,
+const corsOptions = {
+  origin: 'http://localhost:5173', // Update this to the correct frontend URL
   optionsSuccessStatus: 200
+};
 
-}))
+app.use(cors(corsOptions));
 // home testing route
 app.get('/',(req,res)=>res.json({messge:'This is home route'}))
 // user Router
