@@ -13,7 +13,9 @@ app.use(bodyParser.json())
 app.use(cors({
   origin:'http://localhost:5173',
   methods:[ "GET","POST","PUT","DELETE"],
-  credentials:true
+  credentials:true,
+  optionsSuccessStatus: 200
+
 }))
 // home testing route
 app.get('/',(req,res)=>res.json({messge:'This is home route'}))
