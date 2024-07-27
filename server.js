@@ -6,16 +6,17 @@ import productRouter from './Routes/product.js'
 import cartRouter from './Routes/cart.js'
 import addressRouter from './Routes/address.js'
 import paymentRouter from './Routes/payment.js'
-import cors from 'cors';
+
 const app = express();
 import bodyParser from 'express'
 app.use(bodyParser.json())
-const corsOptions = {
-  origin: 'http://localhost:5173', // Update this to the correct frontend URL
-  optionsSuccessStatus: 200
-};
+import cors from 'cors';
+app.use(cors({
+  origin: 'http://localhost:5173',
+  credentials: true
+}));
+app.options('*', cors());
 
-app.use(cors(corsOptions));
 // home testing route
 app.get('/',(req,res)=>res.json({messge:'This is home route'}))
 // user Router
