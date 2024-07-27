@@ -12,10 +12,10 @@ import bodyParser from 'express'
 app.use(bodyParser.json())
 import cors from 'cors';
 app.use(cors({
-  origin: 'http://localhost:5173',
-  withCredentials: true
-}));
-app.options('*', cors());
+  origin:true,
+  methods:[ "GET","POST","PUT","DELETE"],
+  credentials:true
+}))
 
 // home testing route
 app.get('/',(req,res)=>res.json({messge:'This is home route'}))
